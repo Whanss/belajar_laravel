@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+    
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,4 +23,6 @@ Route::get('/stok_barang/{nama_barang}/{merk?}', function ($nama_barang, $merk =
 Route::get('/user/{id}', function ($id) {
     return "Tampilkan User dengan id = $id";
 })->where('id', '([A-Za-z]{2}[0-9]+|[0-9]+)');
+
+Route::resource('posts', PostController::class);
 
